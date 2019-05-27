@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+  <title>VUEJS</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="exercise">
+    <!-- 1) Fill the <p> below with your Name and Age - using Interpolation -->
+    <p>VueJS is pretty cool - {{name}} ({{age}})</p>
+    <!-- 2) Output your age, multiplied by 3 -->
+    <p>{{age * 3}}</p>
+    <!-- 3) Call a function to output a random float between 0 and 1 (Math.random()) -->
+    <p>{{ getRandomVal(0.0,1.0) }}</p>
+    <!-- 4) Search any image on Google and output it here by binding the "src" attribute -->
+    <div>
+      <img style="width:100px;height:100px" v-bind:src="link">
+      <!-- 5) Pre-Populate this input with your name (set the "value" attribute) -->
+      <div>
+        <input type="text" v-bind:value="name">
+      </div>
+    </div>
+  </div>  
+
+  <script>
+    new Vue({
+      el: "#exercise",
+      data: {
+        name: "Oscar A.",
+        age: 21,
+        link: "https://media.istockphoto.com/photos/dog-with-pencil-at-the-office-picture-id667786852?k=6&m=667786852&s=612x612&w=0&h=tqtn4DvPGXLjMP4eSOcctnyBd9aICkz6edKt3ip8UOg="
+      },
+      methods: {
+        getRandomVal: function (min, max) {
+          return Math.random() * (max - min + 1) + min;
+        }
+      }
+    })
+  </script>
+
+</body>
