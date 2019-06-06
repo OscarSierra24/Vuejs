@@ -7,9 +7,11 @@
                 <button @click="selectedComponent = 'appNew'">New</button>
                 <hr>
                 <p>{{selectedComponent}}</p>
-                <component :is="selectedComponent">
-                    <p>default component</p>
-                </component>
+                <keep-alive>
+                    <component :is="selectedComponent">
+                        <p>default component</p>
+                    </component>
+                </keep-alive>
                 <!-- <app-quote>
                     <h2 slot="title">The Quote</h2>
                     <p slot="content">A wonderful quote!</p>
@@ -32,7 +34,9 @@
             }
         },
         components: {
-            appQuote: Quote
+            appQuote: Quote,
+            appAuthor: Author,
+            appNew: New
         }
     }
 </script>
